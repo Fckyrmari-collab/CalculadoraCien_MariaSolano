@@ -1,0 +1,100 @@
+/* Fondo general */
+body{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #3B1E54, #9B7EBD);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Título */
+h1{
+    color: #EEEEEE;
+    margin-top: 30px;
+    font-size: 45px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+/* Caja principal calculadora */
+#calculadora{
+    width: 340px;
+    background-color: #3B1E54;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 25px;
+    border: 4px solid #D4BEE4;
+    box-shadow: 0px 0px 25px rgba(0,0,0,0.4);
+}
+
+/* Pantalla */
+#operaciones{
+    width: 100%;
+    height: 70px;
+    background-color: #EEEEEE;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    text-align: right;
+    line-height: 70px;
+    font-size: 35px;
+    padding-right: 15px;
+    box-sizing: border-box;
+    color: #3B1E54;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+/* Lista botones */
+ul{
+    padding: 0;
+    margin: 0;
+}
+
+/* Botones */
+li{
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    background-color: #9B7EBD;
+    margin: 5px;
+    float: left;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 70px;
+    font-size: 28px;
+    color: #EEEEEE;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Hover botones */
+li:hover{
+    background-color: #D4BEE4;
+    color: #3B1E54;
+    transform: scale(1.05);
+}
+
+/* Botón borrar */
+#borrar{
+    clear: both;
+    width: 95%;
+    height: 60px;
+    background-color: #9B7EBD;
+    margin: 20px auto 0 auto;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 60px;
+    color: #EEEEEE;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Hover borrar */
+#borrar:hover{
+    background-color: #D4BEE4;
+    color: #3B1E54;
+    transform: scale(1.03);
+}
