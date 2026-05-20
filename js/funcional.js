@@ -9,8 +9,9 @@ let p = {
     cantisignos: 0,
     cantidecimales: false,
     resultado: false
-
+    
 }
+
 
 //crear los metodos que tendra
 
@@ -23,6 +24,10 @@ let m = {
             p.teclas[i].addEventListener("click", m.oprimirtecla);
 
         }
+
+        // le decimos al navegador que escuche el teclado
+
+        window.addEventListener("keydown", m.teclado);
 
     },
 
@@ -46,7 +51,7 @@ let m = {
 
                 p.cantisignos = 0;
 
-                if (p.operaciones.innerHTML == "0") {
+                if (p.operaciones.innerHTML.trim() == "0") {
 
                     p.operaciones.innerHTML = digito;
 
@@ -156,16 +161,53 @@ let m = {
         p.cantidecimales = false;
         p.resultado = false;
 
+    },
+
+    //implentacion de teclado
+    teclado: function (evento) {
+    document.addEventListener("keydown", m.teclado); 
+    
+
+        let tecla = evento.key; // Aqui guardamos que tecla se presiono
+      
+        
+    let teclasValidas = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "-", "*", "/", ".", "Enter", "Backspace", "Escape"];
+
+    // Verificamos si la tecla presionada es una de las teclas válidas
+    if (teclasValidas.includes(tecla)) {
+        //Detenemos que la calculadora duplique 
+        evento.preventDefault();
+        evento.stopPropagation();
     }
 
+
+    // si es un numero del 0 al 9 
+     if (tecla >= "0" && tecla <= "9") {
+        m.calculadora("numero", tecla);
+     }
+
+     // si es un signo de operaciones basicas
+     else if (tecla == "+" || tecla == "-" || tecla == "*" || tecla == "/") {
+        m.calculadora("signo", tecla);
+     }
+
+     //si es el punto decimal
+        else if (tecla == ".") 
+        { 
+            m.calculadora("decimal", tecla);
+        }
+
+     // Si presiona Enter (para dar el resultado)
+     else if (tecla == "Enter") {
+        // evitamos que el enter haga cosas raras
+        m.calculadora("igual", "=");
+     }
+     // Si presiona Backspace (retroceso) o escape (para borrar todo)
+        else if (tecla == "Backspace" || tecla == "Escape") {
+            m.borrarCalculadora();
+        }
+    }
 }
 
 //INICIAR
 m.inicio();
-
-//agregar el teclado entregar con trasibilidad del proyecto 
-
-//implementacion de teclado
-//implementcion de seno y Conseno
-//estudiar el codigo por que me van a preguntar todo hacerlo muy bonito
-//es para el viernes despues de las doce del dia
